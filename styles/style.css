@@ -155,6 +155,7 @@ nav {
     top: -123px;
     left: calc(100% - 991px);
 }
+
 .why {
     background-image: url("../images/whybg.png");
     background-position: top center;
@@ -184,9 +185,7 @@ nav {
     text-align: center;
 }
 
-.why-item-img {
-
-}
+.why-item-img {}
 
 .why-item-title {
     font-size: 24px;
@@ -225,7 +224,8 @@ nav {
     justify-content: center;
 }
 
-.products-item {display: flex;
+.products-item {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     width: 384px;
@@ -404,5 +404,3 @@ nav {
     font-size: 16px;
     line-height: 20px;
 }
-
-
