@@ -63,3 +63,25 @@ document.querySelector(".currency").onclick = function (e) {
       newCurrency;
   }
 };
+
+
+//slider
+
+const products = document.querySelector('.products-items');
+console.log(products)
+
+const button = document.createElement('button');
+button.innerText ='button left';
+products.unshift(button)
+
+window.addEventListener('resize', function () {
+	if (window.innerWidth <= 768) {
+		// 0...768
+      products.classList.remove('products-items');
+      products.classList.add('slider')
+	} else {
+		// 769...Inf
+      products.classList.remove('slider');
+      products.classList.add('products-items')
+	}
+});
