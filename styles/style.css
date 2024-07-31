@@ -63,30 +63,37 @@ nav {
 }
 
 .header {
-    padding: 40px 0;
+    padding: 40px 2rem;
 }
 
 .header .container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-right: 2rem;
 }
 
 .logo img {
     vertical-align: bottom;
 }
 
-.menu {
-    margin-left: 191px;
+.menu-wrapper {
+    align-items: center;
+    display: flex;
+    gap: 7.5vw;
 }
+
+.menu {}
 
 .menu-list {
     list-style: none;
     display: flex;
+    gap: 7.5vw;
 }
 
-.menu-item {
-    margin-right: 88px;
-}
 
 .menu-item a {
     color: white;
@@ -97,6 +104,16 @@ nav {
 
 .menu-item a:hover {
     border-bottom: 2px solid white;
+}
+
+.burger-menu {
+    display: none;
+    position: relative;
+    z-index: 50;
+    align-items: center;
+    justify-content: flex-end;
+    width: 30px;
+    height: 18px;
 }
 
 .currency {
@@ -114,8 +131,8 @@ nav {
 }
 
 .main-content {
-    padding-top: 103px;
-    padding-bottom: 199px;
+    padding-top: 6.45rem;
+    padding-bottom: 12.45rem;
 }
 
 .main-content .container {
@@ -125,17 +142,21 @@ nav {
 .main-info {
     max-width: 608px;
     padding: 2rem;
+
 }
 
 .main-small-info {
+    position: relative;
     background: #D3320F;
     padding: 12px 16px;
     border-radius: 100px;
     display: inline-block;
     font-size: 18px;
+    z-index: 1;
 }
 
 .main-title {
+    position: relative;
     font-size: 120px;
     font-family: 'Merriweather', sans-serif;
     text-transform: uppercase;
@@ -143,19 +164,27 @@ nav {
     letter-spacing: 3.60px;
     max-width: 536px;
     margin-bottom: 56px;
+    z-index: 1;
 }
 
 .main-text {
+    position: relative;
     font-size: 24px;
     line-height: 29px;
     margin-bottom: 56px;
+    z-index: 1;
+}
+
+.main-action {
+    position: relative;
+    z-index: 1;
 }
 
 .main-image {
     position: absolute;
     top: -123px;
     left: calc(100% - 991px);
-    z-index: -1;
+
 }
 
 .why {
@@ -173,10 +202,10 @@ nav {
     line-height: 80px;
     letter-spacing: 0.03em;
     text-transform: uppercase;
+    margin-bottom: 3.75rem;
 }
 
 .why-items {
-    margin-top: 60px;
     display: grid;
     gap: 6rem;
     grid-template-columns: repeat(3, 25%);
@@ -188,7 +217,7 @@ nav {
 }
 
 .why-item-title {
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 29px;
     padding: 24px 0;
 }
@@ -220,7 +249,7 @@ nav {
     text-align: center;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    padding-bottom: 60px;
+    margin-bottom: 3.75rem;
 }
 
 .products-items {
@@ -234,14 +263,18 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 384px;
-    height: 564px;
+    width: 24rem;
+    height: 35.25rem;
     box-sizing: border-box;
     background: #211A16;
     border: 1px solid #353535;
     border-radius: 16px;
     padding: 30px;
     gap: 24px;
+}
+
+.products-item-img img {
+    width: 100%;
 }
 
 .products-item-title {
@@ -409,6 +442,7 @@ nav {
 }
 
 .footer .container {
+    padding: 0 2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -422,6 +456,10 @@ nav {
 }
 
 @media (max-width: 768px) {
+    .main-content {
+        padding: 0;
+    }
+
     .main-info {
         display: flex;
         flex-direction: column;
@@ -454,12 +492,23 @@ nav {
     .order-title {
         font-size: 8vw;
         line-height: normal;
+        margin-bottom: 2rem;
     }
+
     .why-items {
         display: grid;
         grid-template-columns: auto;
         gap: 1rem;
-      
+    }
+
+    .why-item {
+        width: 70vw;
+    }
+
+    .why-item-title {
+        font-size: 1.5rem;
+        line-height: 29px;
+        padding: 0.5rem;
     }
 
     .products-item {
@@ -501,9 +550,7 @@ nav {
         margin-left: 0;
     }
 
-    .order-title {
-        
-    }
+    .order-title {}
 
     .order-form-text {
         font-size: 20px;
