@@ -65,22 +65,60 @@ document.querySelector('.currency').onclick = function (e) {
 };
 
 //slider
-
-const products = document.querySelector('.products-items');
-console.log(products);
-
-// const button = document.createElement('button');
-// button.innerText ='button left';
-// products.unshift(button)
-
-window.addEventListener('resize', function () {
-  if (window.innerWidth <= 768) {
-    // 0...768
-    products.classList.remove('products-items');
-    products.classList.add('slider');
+const products = Array.from(document.querySelectorAll('.products-item'));
+let currentProduct = products[0];
+let count = 0;
+const productSlideButtons = document.querySelectorAll('.product-slide-btn');
+const productSlidePrev = productSlideButtons[0];
+const productSlideNext = productSlideButtons[1];
+ 
+productSlidePrev.addEventListener('click', () => {
+  if (count === 0) {
+    currentProduct.classList.add('hidden')
+    currentProduct = products[11];
+    currentProduct.classList.remove('hidden')  
+    count = 11;
   } else {
-    // 769...Inf
-    products.classList.remove('slider');
-    products.classList.add('products-items');
+    currentProduct.classList.add('hidden')
+    currentProduct = products[count - 1];
+    count = count - 1;
+    currentProduct.classList.remove('hidden') 
   }
 });
+
+productSlideNext.addEventListener('click', () => {
+  if (count === 11) {
+    currentProduct.classList.add('hidden')
+    currentProduct = products[0];
+    currentProduct.classList.remove('hidden')  
+    count = 0;
+  } else {
+    currentProduct.classList.add('hidden')
+    currentProduct = products[count + 1];
+    count = count + 1;
+    currentProduct.classList.remove('hidden') 
+  }
+});
+
+let screen = window.matchMedia("(max-width:768px)");
+// window.addEventListener('resize', function () {
+  if (screen.matches) {
+    // 0...768
+    productSlideButtons.forEach((button) => {
+      button.classList.remove('hidden');
+    });
+    products.forEach((burger) => {
+      if (burger != currentProduct) {
+        return burger.classList.add('hidden');
+      }
+    });
+  } else {
+    // 769...Inf
+    productSlideButtons.forEach((button) => {
+      button.classList.add('hidden');
+    });
+    products.forEach((burger) => {
+      return burger.classList.remove('hidden');
+    });
+  }
+// });
