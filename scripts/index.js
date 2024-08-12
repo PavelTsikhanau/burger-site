@@ -64,6 +64,14 @@ document.querySelector('.currency').onclick = function (e) {
   }
 };
 
+//burger-menu
+const burgerMenuButton = document.querySelector('.burger-menu');
+const burgerMenu = document.querySelector('.menu');
+burgerMenuButton.addEventListener('click', () => {
+  burgerMenuButton.classList.toggle('active');
+  burgerMenu.classList.toggle('open')
+})
+
 //slider
 const products = Array.from(document.querySelectorAll('.products-item'));
 let currentProduct = products[0];
