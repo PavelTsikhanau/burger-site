@@ -130,3 +130,33 @@ let screen = window.matchMedia("(max-width:768px)");
     });
   }
 // });
+
+//scroll up button
+const scrollUp = {
+  el: document.querySelector('.scroll-up'),
+  show() {
+    this.el.classList.remove('hidden');
+  },
+  hide() {
+    this.el.classList.add('hidden');
+  },
+  addEventListener() {
+    window.addEventListener('scroll', () => {
+      // определяем величину прокрутки
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      // если страница прокручена больше чем на 400px, то делаем кнопку видимой, иначе скрываем
+      scrollY > 400 ? this.show() : this.hide();
+    });
+    // при нажатии на кнопку .btn-up
+    document.querySelector('.scroll-up').onclick = () => {
+      // переместим в начало страницы
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
+  }
+}
+
+scrollUp.addEventListener();
