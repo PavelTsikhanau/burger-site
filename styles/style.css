@@ -572,6 +572,27 @@ nav {
     background: linear-gradient(95.61deg, #ac6115 0%, #9e7a19 100%);
 }
 
+@media (769px <=width <=860px) {
+    .products-items {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    .slider-buttons {
+        max-width: 400px;
+    }
+
+    .product-slide-btn {
+        width: 10rem;
+        height: 5rem;
+    }
+}
+
 
 
 @media (max-width: 768px) {
