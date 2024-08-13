@@ -66,7 +66,7 @@ document.querySelector('.currency').onclick = function (e) {
 
 //burger-menu
 const burgerMenuButton = document.querySelector('.burger-menu');
-const burgerMenu = document.querySelector('.menu');
+const burgerMenu = document.querySelector('.menu-wrapper');
 burgerMenuButton.addEventListener('click', () => {
   burgerMenuButton.classList.toggle('active');
   burgerMenu.classList.toggle('open')
