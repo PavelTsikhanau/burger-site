@@ -110,7 +110,7 @@ nav {
     z-index: 50;
     align-items: center;
     justify-content: flex-end;
-    width: 30px;
+    width: 35px;
     height: 18px;
     cursor: pointer;
 }
@@ -330,6 +330,7 @@ nav {
     border: 1px solid #353535;
     cursor: pointer;
 }
+
 .product-slide-btn:hover {
     background: linear-gradient(95.61deg, #ac6115 0%, #9e7a19 100%);
     color: #191411;
@@ -538,17 +539,9 @@ nav {
     text-align: end;
 }
 
-.hidden {
-    display: none;
-}
-
-.visible {
-    display: flex;
-}
-
-.button-up {
+.scroll-up {
     position: fixed;
-    background: linear-gradient(95.61deg, #DA8023 0%, #E2B438 100%);
+    background: linear-gradient(95.61deg, rgb(218 128 35 / 75%) 0%, rgb(226 180 56 / 75%) 90%);
     right: 35px;
     bottom: 35px;
     border-radius: 100%;
@@ -561,13 +554,17 @@ nav {
     z-index: 50;
 }
 
-.button-up::before {
+.scroll-up::before {
     content: "";
     width: 50px;
     height: 50px;
     background: transparent no-repeat center center;
     background-size: 100% 100%;
     background-image: url('../images/arrow-up-6-circle-svgrepo-com.svg');
+}
+
+.scroll-up:hover {
+    background: linear-gradient(95.61deg, #ac6115 0%, #9e7a19 100%);
 }
 
 
@@ -583,7 +580,8 @@ nav {
 
     .menu-wrapper {
         display: none;
-        flex-direction: column;
+        flex-direction: row;
+        gap: 0;
         position: fixed;
         height: max-content;
         width: 100%;
@@ -594,7 +592,7 @@ nav {
         z-index: 50;
         overflow-y: auto;
         padding: 40px 40px;
-        background-color: #191411;
+        background-color: #291d15f0;
         border-bottom: solid 3px;
         animation: burgerAnimation 0.4s;
     }
@@ -621,6 +619,11 @@ nav {
         cursor: pointer;
         font-size: 14px;
         user-select: none;
+    }
+
+    .currency:hover {
+        background: white;
+        color: #191411;
     }
 
     .main-content {
@@ -800,4 +803,12 @@ nav {
     to {
         opacity: 1
     }
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: flex;
 }
