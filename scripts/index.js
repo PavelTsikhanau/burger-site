@@ -76,6 +76,7 @@ burgerMenuButton.addEventListener('click', () => {
 const products = Array.from(document.querySelectorAll('.products-item'));
 let currentProduct = products[0];
 let count = 0;
+const sliderButtonsContainer = document.querySelector('.slider-buttons');
 const productSlideButtons = document.querySelectorAll('.product-slide-btn');
 const productSlidePrev = productSlideButtons[0];
 const productSlideNext = productSlideButtons[1];
@@ -112,9 +113,7 @@ let screen = window.matchMedia("(max-width:768px)");
 // window.addEventListener('resize', function () {
   if (screen.matches) {
     // 0...768
-    productSlideButtons.forEach((button) => {
-      button.classList.remove('hidden');
-    });
+    sliderButtonsContainer.classList.remove('hidden')
     products.forEach((burger) => {
       if (burger != currentProduct) {
         return burger.classList.add('hidden');
@@ -122,9 +121,7 @@ let screen = window.matchMedia("(max-width:768px)");
     });
   } else {
     // 769...Inf
-    productSlideButtons.forEach((button) => {
-      button.classList.add('hidden');
-    });
+    sliderButtonsContainer.classList.add('hidden');
     products.forEach((burger) => {
       return burger.classList.remove('hidden');
     });

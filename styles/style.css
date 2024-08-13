@@ -175,6 +175,11 @@ nav {
     user-select: none;
 }
 
+.currency:hover {
+    background: white;
+    color: #191411;
+}
+
 .main-content {
     padding-top: 6.45rem;
     padding-bottom: 12.45rem;
@@ -299,7 +304,7 @@ nav {
 
 .products-items {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 24px;
     justify-content: center;
@@ -621,11 +626,6 @@ nav {
         user-select: none;
     }
 
-    .currency:hover {
-        background: white;
-        color: #191411;
-    }
-
     .main-content {
         padding: 0;
     }
@@ -708,6 +708,7 @@ nav {
 
     .products-items {
         display: flex;
+        flex-direction: column;
         flex-wrap: nowrap;
         gap: 0;
         justify-content: center;
