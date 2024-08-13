@@ -109,7 +109,7 @@ productSlideNext.addEventListener('click', () => {
   }
 });
 
-let screen = window.matchMedia("(max-width:768px)");
+let screen = window.matchMedia("(max-width:860px)");
 // window.addEventListener('resize', function () {
   if (screen.matches) {
     // 0...768
