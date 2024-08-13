@@ -542,8 +542,8 @@ nav {
 .scroll-up {
     position: fixed;
     background: linear-gradient(95.61deg, rgb(218 128 35 / 75%) 0%, rgb(226 180 56 / 75%) 90%);
-    right: 35px;
-    bottom: 35px;
+    right: 32px;
+    bottom: 32px;
     border-radius: 100%;
     cursor: pointer;
     display: flex;
