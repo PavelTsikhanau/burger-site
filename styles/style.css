@@ -217,11 +217,14 @@ nav {
     z-index: 1;
 }
 
+.main-text-wrapper {
+    margin-bottom: 3.5rem;
+}
+
 .main-text {
     position: relative;
     font-size: 24px;
     line-height: 29px;
-    margin-bottom: 56px;
     z-index: 1;
 }
 
@@ -303,6 +306,7 @@ nav {
 }
 
 .products-items {
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -573,6 +577,19 @@ nav {
 }
 
 @media (769px <=width <=860px) {
+    .main-content {
+        padding-top: 5.45rem;
+        padding-bottom: 11.25rem;
+    }
+
+    .why-title,
+    .products-title,
+    .order-title {
+        font-size: 8.5vw;
+        line-height: normal;
+        margin-bottom: 2rem;
+    }
+
     .products-items {
         display: flex;
         flex-direction: column;
@@ -604,6 +621,10 @@ nav {
         width: 7.5rem;
     }
 
+    .main-small-info {
+        align-self: flex-start;
+    }
+
     .menu-wrapper {
         display: none;
         flex-direction: row;
@@ -617,7 +638,7 @@ nav {
         right: 0;
         z-index: 50;
         overflow-y: auto;
-        padding: 40px 40px;
+        padding: 45px 40px;
         background-color: #291d15f0;
         border-bottom: solid 3px;
         animation: burgerAnimation 0.4s;
@@ -662,13 +683,23 @@ nav {
         line-height: normal;
     }
 
-    .main-text {
+    .main-text-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: max-content;
+        background-color: rgb(56 37 22 / 40%);
+        z-index: 1;
+        padding: 0;
         border-radius: 16px;
-        background-color: #211a168c;
+        margin-bottom: 3.5rem;
+        align-self: center;
+    }
+
+    .main-text {
         position: relative;
         font-size: 24px;
         line-height: 29px;
-        margin-bottom: 56px;
         z-index: 1;
     }
 
@@ -736,6 +767,8 @@ nav {
         align-items: center;
         padding: 0;
     }
+
+    .current-product {}
 
     .products {
         padding-top: 2rem;
@@ -827,10 +860,25 @@ nav {
     }
 }
 
+@media (max-width: 460px) {
+    .main-text-wrapper {
+        padding: 0.5rem;
+    }
+
+    .main-action {
+        display: flex;
+        justify-content: center;
+    }
+}
+
 .hidden {
     display: none;
 }
 
 .visible {
     display: flex;
+}
+
+.invisible {
+    visibility: hidden;
 }
