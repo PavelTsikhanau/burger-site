@@ -2,16 +2,30 @@ document.querySelector('#watch-menu').onclick = function () {
   document.querySelector('.products').scrollIntoView({ behavior: 'smooth' });
 };
 
+const burgersNames = document.querySelectorAll('.products-item-title');
 let productsButtons = document.querySelectorAll('.products-button');
 for (let i = 0; i < productsButtons.length; i++) {
   productsButtons[i].onclick = function () {
+    yourOrder.value = `${burgersNames[i].innerText}`;
     document.querySelector('.order').scrollIntoView({ behavior: 'smooth' });
   };
-}
+};
 
 let yourOrder = document.querySelector('#your-order'),
   yourName = document.querySelector('#your-name'),
   yourPhone = document.querySelector('#your-phone');
+// const orderForm = document.querySelector('.order-form-inputs');
+
+// // function validation(form) {
+// //   console.log(form)
+// // };
+
+// orderForm.addEventListener('submit', function (event) {
+//   event.preventDefault();
+
+//   // validation(this)
+// });
+
 let orderButton = (document.querySelector('.order-button').onclick =
   function () {
     let hasError = false;
@@ -27,6 +41,7 @@ let orderButton = (document.querySelector('.order-button').onclick =
 
     if (!hasError) {
       [yourOrder, yourName, yourPhone].forEach((item) => {
+        item.parentElement.style.background = '';
         item.value = '';
       });
       alert('Cпасибо за заказ! Мы скоро с вами свяжемся!');
@@ -35,6 +50,57 @@ let orderButton = (document.querySelector('.order-button').onclick =
 
 let prices = document.querySelectorAll('.products-item-price');
 
+//burger-menu
+
+const burgerMenuButton = document.querySelector('.burger-menu');
+const burgerMenu = document.querySelector('.menu-wrapper');
+burgerMenuButton.addEventListener('click', () => {
+  document.querySelector('.logo').classList.toggle('invisible');
+  burgerMenuButton.classList.toggle('active');
+  burgerMenu.classList.toggle('open');
+});
+
+//slider
+const products = Array.from(document.querySelectorAll('.products-item'));
+let currentProduct = products[0];
+let count = 0;
+const sliderButtonsContainer = document.querySelector('.slider-buttons');
+const productSlideButtons = document.querySelectorAll('.product-slide-btn');
+const productSlidePrev = productSlideButtons[0];
+const productSlideNext = productSlideButtons[1];
+
+productSlidePrev.addEventListener('click', () => {
+  if (count === 0) {
+    currentProduct.classList.add('hidden');
+    currentProduct = products[11];
+    currentProduct.classList.remove('hidden');
+    count = 11;
+  } else {
+    currentProduct.classList.add('hidden');
+    currentProduct = products[count - 1];
+    count = count - 1;
+    currentProduct.classList.remove('hidden');
+  }
+});
+
+productSlideNext.addEventListener('click', () => {
+  if (count === 11) {
+    currentProduct.classList.add('hidden');
+
+    currentProduct = products[0];
+    currentProduct.classList.remove('hidden');
+
+    count = 0;
+  } else {
+    currentProduct.classList.add('hidden');
+
+    currentProduct = products[count + 1];
+    count = count + 1;
+    currentProduct.classList.remove('hidden');
+  }
+});
+
+//currency toggle
 document.querySelector('.currency').onclick = function (e) {
   let currentCurrency = e.target.innerText,
     newCurrency = '$',
@@ -64,68 +130,23 @@ document.querySelector('.currency').onclick = function (e) {
   }
 };
 
-//burger-menu
-const burgerMenuButton = document.querySelector('.burger-menu');
-const burgerMenu = document.querySelector('.menu-wrapper');
-burgerMenuButton.addEventListener('click', () => {
-  burgerMenuButton.classList.toggle('active');
-  burgerMenu.classList.toggle('open')
-})
-
-//slider
-const products = Array.from(document.querySelectorAll('.products-item'));
-let currentProduct = products[0];
-let count = 0;
-const sliderButtonsContainer = document.querySelector('.slider-buttons');
-const productSlideButtons = document.querySelectorAll('.product-slide-btn');
-const productSlidePrev = productSlideButtons[0];
-const productSlideNext = productSlideButtons[1];
- 
-productSlidePrev.addEventListener('click', () => {
-  if (count === 0) {
-    currentProduct.classList.add('hidden')
-    currentProduct = products[11];
-    currentProduct.classList.remove('hidden')  
-    count = 11;
-  } else {
-    currentProduct.classList.add('hidden')
-    currentProduct = products[count - 1];
-    count = count - 1;
-    currentProduct.classList.remove('hidden') 
-  }
-});
-
-productSlideNext.addEventListener('click', () => {
-  if (count === 11) {
-    currentProduct.classList.add('hidden')
-    currentProduct = products[0];
-    currentProduct.classList.remove('hidden')  
-    count = 0;
-  } else {
-    currentProduct.classList.add('hidden')
-    currentProduct = products[count + 1];
-    count = count + 1;
-    currentProduct.classList.remove('hidden') 
-  }
-});
-
-let screen = window.matchMedia("(max-width:860px)");
+let screen = window.matchMedia('(max-width:860px)');
 // window.addEventListener('resize', function () {
-  if (screen.matches) {
-    // 0...768
-    sliderButtonsContainer.classList.remove('hidden')
-    products.forEach((burger) => {
-      if (burger != currentProduct) {
-        return burger.classList.add('hidden');
-      }
-    });
-  } else {
-    // 769...Inf
-    sliderButtonsContainer.classList.add('hidden');
-    products.forEach((burger) => {
-      return burger.classList.remove('hidden');
-    });
-  }
+if (screen.matches) {
+  // 0...768
+  sliderButtonsContainer.classList.remove('hidden');
+  products.forEach((burger) => {
+    if (burger != currentProduct) {
+      return burger.classList.add('hidden');
+    }
+  });
+} else {
+  // 769...Inf
+  sliderButtonsContainer.classList.add('hidden');
+  products.forEach((burger) => {
+    return burger.classList.remove('hidden');
+  });
+}
 // });
 
 //scroll up button
@@ -150,10 +171,10 @@ const scrollUp = {
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
-    }
-  }
-}
+    };
+  },
+};
 
 scrollUp.addEventListener();
