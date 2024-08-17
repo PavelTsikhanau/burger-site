@@ -14,17 +14,6 @@ for (let i = 0; i < productsButtons.length; i++) {
 let yourOrder = document.querySelector('#your-order'),
   yourName = document.querySelector('#your-name'),
   yourPhone = document.querySelector('#your-phone');
-// const orderForm = document.querySelector('.order-form-inputs');
-
-// // function validation(form) {
-// //   console.log(form)
-// // };
-
-// orderForm.addEventListener('submit', function (event) {
-//   event.preventDefault();
-
-//   // validation(this)
-// });
 
 let orderButton = (document.querySelector('.order-button').onclick =
   function () {
@@ -51,10 +40,9 @@ let orderButton = (document.querySelector('.order-button').onclick =
 let prices = document.querySelectorAll('.products-item-price');
 
 //burger-menu
-
 const burgerMenuButton = document.querySelector('.burger-menu');
 const burgerMenu = document.querySelector('.menu-wrapper');
-burgerMenuButton.addEventListener('click', () => {
+burgerMenuButton.addEventListener('click', (event) => {
   document.querySelector('.logo').classList.toggle('invisible');
   burgerMenuButton.classList.toggle('active');
   burgerMenu.classList.toggle('open');
@@ -151,6 +139,7 @@ if (screen.matches) {
 
 //scroll up button
 const scrollUp = {
+  headerCont: document.querySelector('.header .container'),
   el: document.querySelector('.scroll-up'),
   show() {
     this.el.classList.remove('hidden');
@@ -158,12 +147,19 @@ const scrollUp = {
   hide() {
     this.el.classList.add('hidden');
   },
+  showBackground() {
+    this.headerCont.classList.add('background');
+  },
+  hideBackground() {
+    this.headerCont.classList.remove('background');
+  },
   addEventListener() {
     window.addEventListener('scroll', () => {
       // определяем величину прокрутки
       const scrollY = window.scrollY || document.documentElement.scrollTop;
       // если страница прокручена больше чем на 400px, то делаем кнопку видимой, иначе скрываем
       scrollY > 400 ? this.show() : this.hide();
+      scrollY > 30 ? this.showBackground() : this.hideBackground();
     });
     // при нажатии на кнопку .btn-up
     document.querySelector('.scroll-up').onclick = () => {
@@ -177,4 +173,6 @@ const scrollUp = {
   },
 };
 
+
 scrollUp.addEventListener();
+
